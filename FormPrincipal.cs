@@ -28,7 +28,7 @@ namespace Cueva_1
             try
             {
                 player.SoundLocation = @"..\..\sound\main.wav";
-                player.Play();               
+                //player.Play();               
             }
             catch (Exception)
             {
@@ -169,6 +169,11 @@ namespace Cueva_1
         private void btnSegmenta_Click(object sender, EventArgs e)
         {
             crearHijo(new Cueva_1.FormSegmentacion());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            crearHijo(new Cueva_1.btnTransformar());
         }
     }
 }

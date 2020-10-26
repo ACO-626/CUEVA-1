@@ -39,6 +39,7 @@
             this.btnSegmenta = new System.Windows.Forms.Button();
             this.btnIA = new System.Windows.Forms.Button();
             this.panelTrans = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnRGB = new System.Windows.Forms.Button();
             this.btnIGrises3 = new System.Windows.Forms.Button();
             this.btnIGrises2 = new System.Windows.Forms.Button();
@@ -50,23 +51,22 @@
             this.btnLibre = new System.Windows.Forms.Button();
             this.btnDibujo = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.panelHijo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelShow = new System.Windows.Forms.Panel();
             this.btnShow = new System.Windows.Forms.PictureBox();
-            this.pictureLogo = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelAmb.SuspendLayout();
             this.panelIA.SuspendLayout();
             this.panelTrans.SuspendLayout();
             this.panelDibujo.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.panelHijo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnShow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -222,6 +222,22 @@
             this.panelTrans.Size = new System.Drawing.Size(233, 215);
             this.panelTrans.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(0, 160);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Niveles";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnRGB
             // 
             this.btnRGB.Dock = System.Windows.Forms.DockStyle.Top;
@@ -233,7 +249,7 @@
             this.btnRGB.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnRGB.Size = new System.Drawing.Size(233, 40);
             this.btnRGB.TabIndex = 3;
-            this.btnRGB.Text = "Niveles RGB";
+            this.btnRGB.Text = "Curvas RGB";
             this.btnRGB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRGB.UseVisualStyleBackColor = true;
             // 
@@ -385,6 +401,16 @@
             this.panelLogo.Size = new System.Drawing.Size(233, 100);
             this.panelLogo.TabIndex = 1;
             // 
+            // pictureLogo
+            // 
+            this.pictureLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pictureLogo.Location = new System.Drawing.Point(43, 0);
+            this.pictureLogo.Name = "pictureLogo";
+            this.pictureLogo.Size = new System.Drawing.Size(136, 94);
+            this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureLogo.TabIndex = 0;
+            this.pictureLogo.TabStop = false;
+            // 
             // panelHijo
             // 
             this.panelHijo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(18)))));
@@ -431,31 +457,6 @@
             this.btnShow.TabStop = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
-            // pictureLogo
-            // 
-            this.pictureLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureLogo.Location = new System.Drawing.Point(43, 0);
-            this.pictureLogo.Name = "pictureLogo";
-            this.pictureLogo.Size = new System.Drawing.Size(136, 94);
-            this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLogo.TabIndex = 0;
-            this.pictureLogo.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(0, 160);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Seg";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,7 +466,7 @@
             this.Controls.Add(this.panelHijo);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MinimumSize = new System.Drawing.Size(99, 98);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUEVA-1";
@@ -476,11 +477,11 @@
             this.panelTrans.ResumeLayout(false);
             this.panelDibujo.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.panelHijo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelShow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnShow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
