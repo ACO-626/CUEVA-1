@@ -28,7 +28,7 @@ namespace Cueva_1
             try
             {
                 player.SoundLocation = @"..\..\sound\main.wav";
-                //player.Play();               
+                player.Play();               
             }
             catch (Exception)
             {
