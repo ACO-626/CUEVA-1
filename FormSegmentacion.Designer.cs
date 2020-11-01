@@ -40,12 +40,13 @@
             this.lbAnuncio = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panelleft = new System.Windows.Forms.Panel();
+            this.btnRadioGraf = new System.Windows.Forms.Button();
             this.pictureRadio = new System.Windows.Forms.PictureBox();
             this.pictureBrain = new System.Windows.Forms.PictureBox();
             this.pictureTumor = new System.Windows.Forms.PictureBox();
             this.lbTumor = new System.Windows.Forms.Button();
             this.lbCerebro = new System.Windows.Forms.Button();
-            this.btnRadioGraf = new System.Windows.Forms.Button();
+            this.btnCoinci = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnR)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelleft.SuspendLayout();
@@ -185,13 +186,26 @@
             this.panelleft.Size = new System.Drawing.Size(214, 599);
             this.panelleft.TabIndex = 4;
             // 
+            // btnRadioGraf
+            // 
+            this.btnRadioGraf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRadioGraf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRadioGraf.Location = new System.Drawing.Point(95, 159);
+            this.btnRadioGraf.Name = "btnRadioGraf";
+            this.btnRadioGraf.Size = new System.Drawing.Size(116, 53);
+            this.btnRadioGraf.TabIndex = 4;
+            this.btnRadioGraf.Text = "RADIOGRAFÍA";
+            this.btnRadioGraf.UseVisualStyleBackColor = true;
+            this.btnRadioGraf.Visible = false;
+            this.btnRadioGraf.Click += new System.EventHandler(this.btnRadioGraf_Click);
+            // 
             // pictureRadio
             // 
             this.pictureRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pictureRadio.Location = new System.Drawing.Point(244, 23);
+            this.pictureRadio.MaximumSize = new System.Drawing.Size(433, 563);
             this.pictureRadio.Name = "pictureRadio";
             this.pictureRadio.Size = new System.Drawing.Size(432, 562);
-            this.pictureRadio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRadio.TabIndex = 5;
             this.pictureRadio.TabStop = false;
             this.pictureRadio.Visible = false;
@@ -222,19 +236,18 @@
             // 
             this.lbTumor.Image = ((System.Drawing.Image)(resources.GetObject("lbTumor.Image")));
             this.lbTumor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbTumor.Location = new System.Drawing.Point(722, 447);
+            this.lbTumor.Location = new System.Drawing.Point(682, 540);
             this.lbTumor.Name = "lbTumor";
-            this.lbTumor.Size = new System.Drawing.Size(133, 33);
+            this.lbTumor.Size = new System.Drawing.Size(175, 33);
             this.lbTumor.TabIndex = 12;
-            this.lbTumor.Text = "COINCIDENCIA";
+            this.lbTumor.Text = "ZONAS DE ALTO RIESGO";
             this.lbTumor.UseVisualStyleBackColor = true;
             this.lbTumor.Visible = false;
             // 
             // lbCerebro
             // 
-            this.lbCerebro.Image = ((System.Drawing.Image)(resources.GetObject("lbCerebro.Image")));
             this.lbCerebro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbCerebro.Location = new System.Drawing.Point(722, 408);
+            this.lbCerebro.Location = new System.Drawing.Point(738, 322);
             this.lbCerebro.Name = "lbCerebro";
             this.lbCerebro.Size = new System.Drawing.Size(133, 33);
             this.lbCerebro.TabIndex = 13;
@@ -242,18 +255,16 @@
             this.lbCerebro.UseVisualStyleBackColor = true;
             this.lbCerebro.Visible = false;
             // 
-            // btnRadioGraf
+            // btnCoinci
             // 
-            this.btnRadioGraf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRadioGraf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRadioGraf.Location = new System.Drawing.Point(95, 159);
-            this.btnRadioGraf.Name = "btnRadioGraf";
-            this.btnRadioGraf.Size = new System.Drawing.Size(116, 53);
-            this.btnRadioGraf.TabIndex = 4;
-            this.btnRadioGraf.Text = "RADIOGRAFÍA";
-            this.btnRadioGraf.UseVisualStyleBackColor = true;
-            this.btnRadioGraf.Visible = false;
-            this.btnRadioGraf.Click += new System.EventHandler(this.btnRadioGraf_Click);
+            this.btnCoinci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCoinci.Location = new System.Drawing.Point(997, 322);
+            this.btnCoinci.Name = "btnCoinci";
+            this.btnCoinci.Size = new System.Drawing.Size(133, 33);
+            this.btnCoinci.TabIndex = 14;
+            this.btnCoinci.Text = "COINCIDENCIAS";
+            this.btnCoinci.UseVisualStyleBackColor = true;
+            this.btnCoinci.Visible = false;
             // 
             // FormSegmentacion
             // 
@@ -261,6 +272,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(1209, 687);
+            this.Controls.Add(this.btnCoinci);
             this.Controls.Add(this.lbCerebro);
             this.Controls.Add(this.lbTumor);
             this.Controls.Add(this.pictureTumor);
@@ -302,5 +314,6 @@
         private System.Windows.Forms.Button lbTumor;
         private System.Windows.Forms.Button lbCerebro;
         private System.Windows.Forms.Button btnRadioGraf;
+        private System.Windows.Forms.Button btnCoinci;
     }
 }

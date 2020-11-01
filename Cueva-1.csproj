@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormEscala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEscala.Designer.cs">
+      <DependentUpon>FormEscala.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHistograma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormEscala.resx">
+      <DependentUpon>FormEscala.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHistograma.resx">
       <DependentUpon>FormHistograma.cs</DependentUpon>
     </EmbeddedResource>

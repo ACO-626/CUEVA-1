@@ -39,6 +39,7 @@
             this.btnSegmenta = new System.Windows.Forms.Button();
             this.btnIA = new System.Windows.Forms.Button();
             this.panelTrans = new System.Windows.Forms.Panel();
+            this.btnEscala = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRGB = new System.Windows.Forms.Button();
             this.btnIGrises3 = new System.Windows.Forms.Button();
@@ -94,7 +95,7 @@
             this.panelAmb.Controls.Add(this.btnPixelPark);
             this.panelAmb.Controls.Add(this.btnMusica);
             this.panelAmb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAmb.Location = new System.Drawing.Point(0, 739);
+            this.panelAmb.Location = new System.Drawing.Point(0, 784);
             this.panelAmb.Name = "panelAmb";
             this.panelAmb.Size = new System.Drawing.Size(233, 109);
             this.panelAmb.TabIndex = 7;
@@ -138,7 +139,7 @@
             this.btnAmbiente.FlatAppearance.BorderSize = 0;
             this.btnAmbiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAmbiente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAmbiente.Location = new System.Drawing.Point(0, 694);
+            this.btnAmbiente.Location = new System.Drawing.Point(0, 739);
             this.btnAmbiente.Name = "btnAmbiente";
             this.btnAmbiente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAmbiente.Size = new System.Drawing.Size(233, 45);
@@ -154,7 +155,7 @@
             this.panelIA.Controls.Add(this.btn1);
             this.panelIA.Controls.Add(this.btnSegmenta);
             this.panelIA.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelIA.Location = new System.Drawing.Point(0, 594);
+            this.panelIA.Location = new System.Drawing.Point(0, 639);
             this.panelIA.Name = "panelIA";
             this.panelIA.Size = new System.Drawing.Size(233, 100);
             this.panelIA.TabIndex = 5;
@@ -198,7 +199,7 @@
             this.btnIA.FlatAppearance.BorderSize = 0;
             this.btnIA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIA.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnIA.Location = new System.Drawing.Point(0, 549);
+            this.btnIA.Location = new System.Drawing.Point(0, 594);
             this.btnIA.Name = "btnIA";
             this.btnIA.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnIA.Size = new System.Drawing.Size(233, 45);
@@ -211,6 +212,7 @@
             // panelTrans
             // 
             this.panelTrans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelTrans.Controls.Add(this.btnEscala);
             this.panelTrans.Controls.Add(this.button1);
             this.panelTrans.Controls.Add(this.btnRGB);
             this.panelTrans.Controls.Add(this.btnIGrises3);
@@ -219,8 +221,24 @@
             this.panelTrans.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTrans.Location = new System.Drawing.Point(0, 334);
             this.panelTrans.Name = "panelTrans";
-            this.panelTrans.Size = new System.Drawing.Size(233, 215);
+            this.panelTrans.Size = new System.Drawing.Size(233, 260);
             this.panelTrans.TabIndex = 3;
+            // 
+            // btnEscala
+            // 
+            this.btnEscala.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEscala.FlatAppearance.BorderSize = 0;
+            this.btnEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEscala.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEscala.Location = new System.Drawing.Point(0, 200);
+            this.btnEscala.Name = "btnEscala";
+            this.btnEscala.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnEscala.Size = new System.Drawing.Size(233, 40);
+            this.btnEscala.TabIndex = 5;
+            this.btnEscala.Text = "Escala";
+            this.btnEscala.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEscala.UseVisualStyleBackColor = true;
+            this.btnEscala.Click += new System.EventHandler(this.btnEscala_Click);
             // 
             // button1
             // 
@@ -466,7 +484,7 @@
             this.Controls.Add(this.panelHijo);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(99, 98);
+            this.MinimumSize = new System.Drawing.Size(98, 97);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUEVA-1";
@@ -515,6 +533,7 @@
         private System.Windows.Forms.PictureBox btnShow;
         private System.Windows.Forms.PictureBox pictureLogo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEscala;
     }
 }
 

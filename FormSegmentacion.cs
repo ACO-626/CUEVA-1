@@ -27,6 +27,7 @@ namespace Cueva_1
         int izq;
         bool error=false;
         int[,] matrizImage;
+        int[,] matrizImageTumor;
         int[,] ubicacion=new int[4,2];
         Image<Bgr, Byte> My_Image;
         Image<Gray, Byte> imageGray;
@@ -327,11 +328,13 @@ namespace Cueva_1
             lbTumor.Visible = false;
             btnRadioGraf.Visible = false;
             btnImportar.Visible = true;
+            btnCoinci.Visible = false;
             
         }
 
         private void TransformaraCerebro()
         {
+            btnCoinci.Visible = true;
             btnBuscar.Text = "ANALIZAR";
             lbSensibilidad.Visible = false;
             btnR.Visible = false;
@@ -404,12 +407,12 @@ namespace Cueva_1
                 {
                     if ((int)imageGray[i, j].Intensity < 50)
                     {
-                        imageGray[i, j] = new Gray((int)imageGray[i, j].Intensity-40);
+                        imageGray[i, j] = new Gray((int)imageGray[i, j].Intensity-70);
                         //matrizImage[i, j] = 0;
                     }
                     else
                     {
-                        imageGray[i, j] = new Gray((int)imageGray[i, j].Intensity + 10);
+                        imageGray[i, j] = new Gray((int)imageGray[i, j].Intensity + 20);
                         //imageGray[i, j] = new Gray(255);
                         //matrizImage[i, j] = 1;
                     }
@@ -418,6 +421,7 @@ namespace Cueva_1
                 }
             }
             discriminarCraneo(imageGray);
+            //discriminarCraneo(imageGray);
             identificarCerebro(imageGray);
         }
 
@@ -526,7 +530,7 @@ namespace Cueva_1
                             {
                                 contador2++;
                             }
-                            if (contador2 > 1)
+                            if (contador2 > 2)
                             {
                                 contador = 0;
                                 contador2 = 0;
@@ -569,20 +573,175 @@ namespace Cueva_1
         
         private void identificarCerebro(Image<Gray,byte> imagenB)
         {
+
+
+            
             for(int i=0;i<imagenB.Height;i++)
             {
                 for(int j =0;j<imagenB.Width;j++)
                 {
-                    if((int)imagenB[i,j].Intensity<150)
+                    if(i!=0)
+                    {
+                        if ((int)imagenB[i, j].Intensity < 150)
+                        {
+                            imagenB[i, j] = new Gray(0);
+                        }
+                    }
+                   
+
+                    /*if((int)imagenB[i,j].Intensity<150)
                     {
                         imagenB[i, j] = new Gray(0);
-                    }
+                    }*/
 
                 }
             }
+            matrizImageTumor = new int[My_Image.Height, My_Image.Width];
+
+            pictureTumor.Image = imagenB.ToBitmap();
+            //int variador = 150;
+            for (int variador=0;variador<255;variador=variador+5)
+            {
+                identificarTumor(imagenB,variador);
+            }
+            
             pictureTumor.Image = imagenB.ToBitmap();
         }
-        
+
+        private void identificarTumor(Image<Gray, byte> imagen,int variador)
+        {
+            vaciarMatriz();
+            
+           
+            
+            
+            for (int i = 0; i < imageGray.Height; i++)
+            {
+                for (int j = 0; j < imageGray.Width; j++)
+                {
+                    if ((int)imageGray[i,j].Intensity>=variador)
+                    {
+
+                        //Verifica abajo
+                        aba = abajoT(i, j, imagen);
+                        if (aba > 10)
+                        {
+
+                            //MessageBox.Show("Abajo"+aba.ToString() + " i" + i.ToString()+"j" +j.ToString());
+
+
+                            izq = izquierdaT(i + (aba / 2), j, imagen);
+
+                            if (izq > 10)
+                            {
+                                // MessageBox.Show("izq" + izq.ToString() );
+                                der = derechaT(i + (aba / 2), j,imagen);
+                                if (der > 10)
+                                {
+                                    // MessageBox.Show("der " + der.ToString());
+                                    ubicacion[0, 0] = i;
+                                    ubicacion[0, 1] = j - izq;
+                                    ubicacion[1, 0] = izq + der;
+                                    ubicacion[1, 1] = aba;
+                                    coinc = true;
+                                    break;
+
+
+
+
+
+                                }
+                            }
+                        }
+                    }
+
+                }
+                if (coinc)
+                {
+                    break;
+                }
+            }
+
+            
+           if(coinc)
+            {
+                lbAnuncio.Text = "Alteraciones encontradas";
+                papel = pictureRadio.CreateGraphics();
+                pluma.Color = Color.Red;
+                pluma.Width = 5;
+                papel.DrawRectangle(pluma, ubicacion[0, 1], ubicacion[0, 0], ubicacion[1, 0], ubicacion[1, 1]);
+            }
+            else
+            {
+                //lbAnuncio.Text = "No encontrado";
+            }
+              
+            
+
+
+
+            //pictureBox1.Image = imageGray.ToBitmap();
+        }
+
+        private int abajoT(int i, int j,Image<Gray,byte> img)
+        {
+            int resultado = 0;
+            try
+            {
+                while ((int)img[i, j].Intensity > 0 & i < My_Image.Height)
+                {
+                    i++;
+                    resultado++;
+                }
+            }
+            catch (Exception)
+            {
+                lbAnuncio.Text = "Verificar el tipo de búsqueda";
+
+            }
+
+
+            return resultado;
+        }
+        private int izquierdaT(int i, int j, Image<Gray, byte> img)
+        {
+            int resultado = 0;
+            try
+            {
+                while ((int)img[i, j].Intensity > 0 & j > 0)
+                {
+                    j--;
+                    resultado++;
+                }
+            }
+            catch (Exception)
+            {
+                lbAnuncio.Text = "Verificar el tipo de búsqueda";
+            }
+
+
+            return resultado;
+        }
+        private int derechaT(int i, int j, Image<Gray, byte> img)
+        {
+            int resultado = 0;
+            try
+            {
+                while ((int)img[i, j].Intensity > 0 & j < My_Image.Width)
+                {
+                    j++;
+                    resultado++;
+                }
+            }
+            catch (Exception)
+            {
+                lbAnuncio.Text = "Verificar el tipo de búsqueda";
+            }
+
+
+            return resultado;
+        }
+
 
     }
 }
